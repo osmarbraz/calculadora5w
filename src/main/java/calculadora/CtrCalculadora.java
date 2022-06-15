@@ -28,8 +28,16 @@ public class CtrCalculadora extends HttpServlet {
 
                 // Instancia o objeto Calculadora
                 Calculadora calculadora = new Calculadora();
-                calculadora.setValorA(Double.parseDouble(request.getParameter("ValorA")));
-                calculadora.setValorB(Double.parseDouble(request.getParameter("ValorB")));
+                try{
+                    calculadora.setValorA(Double.parseDouble(request.getParameter("ValorA")));
+                } catch (NumberFormatException e) {
+                    LOGGER.log(Level.SEVERE, "Problema de conversão do valor A {0}", e.toString());
+                }
+                try{
+                    calculadora.setValorB(Double.parseDouble(request.getParameter("ValorB")));
+                } catch (NumberFormatException e) {
+                    LOGGER.log(Level.SEVERE, "Problema de conversão do valor B {0}", e.toString());
+                }
 
                 if (request.getParameter(OPERACAO).equals("adicao")) {
                     out.print("A adição de " + calculadora.getValorA() + " + " + calculadora.getValorB() + " = " + calculadora.getAdicao() + " <p>");
