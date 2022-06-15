@@ -1,4 +1,10 @@
-<html><head><title>Calculadora</title></head><body>
+<!DOCTYPE html>
+<html lang="pt-br" xml:lang="pt-br">
+<html>
+    <head>
+        <title>Calculadora</title>
+    </head>
+    <body>
         <h1>Calculadora</h1>
         <form name="FrmCalculadora" method="post" action="servlet/CtrCalculadora">	
             Valor A : <input type=text name="ValorA"> <p>
@@ -13,4 +19,5 @@
                 <input type="reset" value="Limpar">
             <input type="submit" name="Calcular" value="Calcular"> <p>		  
         </form>
-    </body></html>	
+    </body>
+</html>	

@@ -15,10 +15,10 @@ import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class TestCtrlCalculadora {
+class TestCtrlCalculadora {
     
-   @Test
-    public void testGetAdicao() throws IOException, ServletException {
+    @Test
+    void testGetAdicao() throws IOException, ServletException {
 
         HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
         HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
@@ -44,7 +44,7 @@ public class TestCtrlCalculadora {
     }
 
     @Test
-    public void testGetSubtracao() throws IOException, ServletException {
+    void testGetSubtracao() throws IOException, ServletException {
 
         HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
         HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
@@ -70,7 +70,7 @@ public class TestCtrlCalculadora {
     }
     
     @Test
-    public void testGetProduto() throws IOException, ServletException {
+    void testGetProduto() throws IOException, ServletException {
 
         HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
         HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
@@ -96,7 +96,7 @@ public class TestCtrlCalculadora {
     }
     
     @Test
-    public void testGetDivisao() throws IOException, ServletException {
+    void testGetDivisao() throws IOException, ServletException {
 
         HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
         HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
