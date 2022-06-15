@@ -137,7 +137,7 @@
                 <version>3.2.1</version>
                 <configuration>
                     <from>
-                        <image>openjdk:18-jdk-alpine</image>
+                        <image>openjdk:alpine</image>
                     </from>
                     <to>
                         <image>osmarbraz/calculadora5w:${project.version}</image>
@@ -155,7 +155,9 @@
                             <jvmFlag>-Xms256m</jvmFlag>
                             <jvmFlag>-Xmx512m</jvmFlag>
                         </jvmFlags>
-                        <mainClass>io.github.gasparbarancelli.blog.BlogApplication</mainClass>
+                        <ports>
+                            <port>8080</port>
+                        </ports>                        
                     </container>
                 </configuration>
             </plugin>
