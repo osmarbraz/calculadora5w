@@ -20,7 +20,7 @@ class TestCalculadora {
         double retornoFeito = calculadora.getSubtracao();
         assertEquals(retornoEsperado, retornoFeito, 0);
     }
-    
+
     @Test
     void testGetProduto() {
         Calculadora calculadora = new Calculadora(4.0, 2.0);
@@ -28,12 +28,12 @@ class TestCalculadora {
         double retornoFeito = calculadora.getProduto();
         assertEquals(retornoEsperado, retornoFeito, 0);
     }
-    
+
     @Test
     void testGetDivisao() {
         Calculadora calculadora = new Calculadora(4.0, 2.0);
         double retornoEsperado = 2.0;
-        double retornoFeito = calculadora.getDivisao();                
+        double retornoFeito = calculadora.getDivisao();
         assertEquals(retornoEsperado, retornoFeito, 0);
     }
 }

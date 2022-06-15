@@ -2,7 +2,7 @@ package calculadora;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-        
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import javax.servlet.ServletContext;
@@ -16,7 +16,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class TestCtrlCalculadora {
-    
+
     @Test
     void testGetAdicao() throws IOException, ServletException {
 
@@ -68,7 +68,7 @@ class TestCtrlCalculadora {
 
         assertTrue(resultado.contains("4.0 - 2.0 = 2.0"));
     }
-    
+
     @Test
     void testGetProduto() throws IOException, ServletException {
 
@@ -94,7 +94,7 @@ class TestCtrlCalculadora {
 
         assertTrue(resultado.contains("4.0 * 2.0 = 8.0"));
     }
-    
+
     @Test
     void testGetDivisao() throws IOException, ServletException {
 

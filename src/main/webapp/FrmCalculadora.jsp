@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br" xml:lang="pt-br">
-<html>
     <head>
         <title>Calculadora</title>
     </head>
