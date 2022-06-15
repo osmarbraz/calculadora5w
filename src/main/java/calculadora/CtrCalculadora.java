@@ -30,10 +30,6 @@ public class CtrCalculadora extends HttpServlet {
                 Calculadora calculadora = new Calculadora();
                 try{
                     calculadora.setValorA(Double.parseDouble(request.getParameter("ValorA")));
-                } catch (NumberFormatException e) {
-                    LOGGER.log(Level.SEVERE, "Problema de conversão do valor A {0}", e.toString());
-                }
-                try{
                     calculadora.setValorB(Double.parseDouble(request.getParameter("ValorB")));
                 } catch (NumberFormatException e) {
                     LOGGER.log(Level.SEVERE, "Problema de conversão do valor B {0}", e.toString());
@@ -50,16 +46,11 @@ public class CtrCalculadora extends HttpServlet {
                         } else {
                             if (request.getParameter(OPERACAO).equals("divisao")) {
                                 out.print("A divisão " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getDivisao() + " <p>");
-                            } else {
-                                out.print("Operação inválida! <p>");
-                            }
+                            } 
                         }
                     }
                 }
-
-                out.print("<a href=\"" + request.getContextPath() + "/FrmCalculadora.jsp\"> Novo cálculo </a><p>");
-
-                out.println("</body></html>");
+                out.print("<a href=\"" + request.getContextPath() + "/FrmCalculadora.jsp\"> Novo cálculo </a><p></body></html>");
             }
         } catch (IOException e) {
             LOGGER.log(Level.SEVERE, "Problema E/S {0}", e.toString());
