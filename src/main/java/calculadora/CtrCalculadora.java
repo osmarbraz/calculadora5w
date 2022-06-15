@@ -15,6 +15,16 @@ public class CtrCalculadora extends HttpServlet {
 
     private static final String OPERACAO = "operacao";
 
+    public double getValorReal(String valorString) {
+        double valor = 0;
+        try {
+            valor = Double.parseDouble(valorString);
+        } catch (NumberFormatException e) {
+            LOGGER.log(Level.SEVERE, "Problema de conversão do valor {0}", e.toString());
+        }
+        return valor;
+    }
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
 
@@ -28,17 +38,9 @@ public class CtrCalculadora extends HttpServlet {
 
                 // Instancia o objeto Calculadora
                 Calculadora calculadora = new Calculadora();
-                try{
-                    calculadora.setValorA(Double.parseDouble(request.getParameter("ValorA")));                    
-                } catch (NumberFormatException e) {
-                    LOGGER.log(Level.SEVERE, "Problema de conversão do valor A {0}", e.toString());
-                }
-                try{                    
-                    calculadora.setValorB(Double.parseDouble(request.getParameter("ValorB")));
-                } catch (NumberFormatException e) {
-                    LOGGER.log(Level.SEVERE, "Problema de conversão do valor B {0}", e.toString());
-                }
-
+                calculadora.setValorA(getValorReal(request.getParameter("ValorA")));                
+                calculadora.setValorB(getValorReal(request.getParameter("ValorB")));
+                
                 if (request.getParameter(OPERACAO).equals("adicao")) {
                     out.print("A adição de " + calculadora.getValorA() + " + " + calculadora.getValorB() + " = " + calculadora.getAdicao() + " <p>");
                 } else {
@@ -50,7 +52,7 @@ public class CtrCalculadora extends HttpServlet {
                         } else {
                             if (request.getParameter(OPERACAO).equals("divisao")) {
                                 out.print("A divisão " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getDivisao() + " <p>");
-                            } 
+                            }
                         }
                     }
                 }
