@@ -106,3 +106,9 @@ jobs:
         name: Package-${{  runner.os }} #.zip será adicionado automaticamente
         # Caminho da pasta temporária (stating)
         path: staging    
+        
+    - name: Controi o projeto, cria a imagem docker e envia imagem para dockerhub
+      env:
+        DOCKERHUB_USERNAME: ${{secrets.DOCKERHUB_USERNAME}}
+        DOCKERHUB_TOKEN: ${{secrets.DOCKERHUB_TOKEN}}
+      run: mvn -B package jib:build -DskipTests        

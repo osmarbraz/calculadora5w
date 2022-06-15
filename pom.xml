@@ -129,7 +129,37 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>                    
+            
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <configuration>
+                    <from>
+                        <image>openjdk:15-jdk-slim-buster</image>
+                    </from>
+                    <to>
+                        <image>osmarbraz/calculadora5w:${project.version}</image>
+                        <auth>
+                            <username>
+                                ${env.DOCKERHUB_USERNAME}
+                            </username>
+                            <password>
+                                ${env.DOCKERHUB_TOKEN}
+                            </password>
+                        </auth>
+                    </to>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-Xms256m</jvmFlag>
+                            <jvmFlag>-Xmx512m</jvmFlag>
+                        </jvmFlags>
+                        <mainClass>io.github.gasparbarancelli.blog.BlogApplication</mainClass>
+                    </container>
+                </configuration>
             </plugin>
+
             
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
