@@ -144,7 +144,7 @@
                         <image>tomcat:8.5-jre8-alpine</image>
                     </from>
                     <to>                        
-                        <image>osmarbraz/calculadora5w:${project.version}</image>
+                        <image>osmarbraz/${project.artifactId}:${project.version}</image>
                         <auth>
                             <username>
                                 ${env.DOCKERHUB_USERNAME}
@@ -161,7 +161,7 @@
                             <jvmFlag>-Xmx512m</jvmFlag>
                         </jvmFlags>
                         <ports>
-                            <port>8080:8080</port>
+                            <port>8080</port>
                         </ports>                        
                     </container>
                 </configuration>
