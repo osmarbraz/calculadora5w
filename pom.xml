@@ -140,10 +140,10 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.2.1</version>
                 <configuration>
-                    <from>
-                        <image>openjdk:alpine</image>
+                    <from>                        
+                        <image>tomcat:8.5-jre8-alpine</image>
                     </from>
-                    <to>
+                    <to>                        
                         <image>osmarbraz/calculadora5w:${project.version}</image>
                         <auth>
                             <username>
@@ -155,15 +155,15 @@
                         </auth>
                     </to>
                     <container>
+                        <appRoot>/usr/local/tomcat/webapps/ROOT</appRoot>
                         <jvmFlags>
                             <jvmFlag>-Xms256m</jvmFlag>
                             <jvmFlag>-Xmx512m</jvmFlag>
                         </jvmFlags>
                         <ports>
-                            <port>8080</port>
+                            <port>8080:8080</port>
                         </ports>                        
                     </container>
-                    
                 </configuration>
             </plugin>
 
