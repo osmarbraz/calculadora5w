@@ -12,8 +12,9 @@ import javax.servlet.http.HttpSession;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
@@ -21,8 +22,24 @@ import static org.mockito.Mockito.when;
 
 class TestCtrlCalculadora {
 
-    @Test
-    void testGetAdicao() throws IOException, ServletException {
+    /**
+     * Teste parametrizado das operações da calculadora.
+     * 
+     * @param valorA
+     * @param valorB
+     * @param operacao
+     * @param resposta
+     * @throws IOException
+     * @throws ServletException 
+     */
+    @ParameterizedTest
+    @CsvSource({
+        "4, 2, adicao,     4.0 + 2.0 = 6.0",
+        "4, 2, subtracao,  4.0 - 2.0 = 2.0",
+        "4, 2, produto,    4.0 * 2.0 = 8.0",
+        "4, 2, divisao,    4.0 / 2.0 = 2.0"        
+    })
+    void testGetAdicao(String valorA, String valorB, String operacao, String resposta) throws IOException, ServletException {
 
         HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
         HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
@@ -34,9 +51,9 @@ class TestCtrlCalculadora {
         PrintWriter writer = new PrintWriter(stringWriter);
         when(mockedResponse.getWriter()).thenReturn(writer);
 
-        when(mockedRequest.getParameter("ValorA")).thenReturn("4");
-        when(mockedRequest.getParameter("ValorB")).thenReturn("2");
-        when(mockedRequest.getParameter("operacao")).thenReturn("adicao");
+        when(mockedRequest.getParameter("ValorA")).thenReturn(valorA);
+        when(mockedRequest.getParameter("ValorB")).thenReturn(valorB);
+        when(mockedRequest.getParameter("operacao")).thenReturn(operacao);
         when(mockedRequest.getSession()).thenReturn(mockedSession);
 
         CtrCalculadora ctrlcalculadora = new CtrCalculadora();
@@ -44,9 +61,9 @@ class TestCtrlCalculadora {
 
         String resultado = stringWriter.toString();
 
-        assertTrue(resultado.contains("4.0 + 2.0 = 6.0"));
+        assertTrue(resultado.contains(resposta));
     }
-    
+        
     @Test
     void testGetAdicaoNaoNumeroValorA() throws IOException, ServletException {
 
@@ -99,83 +116,7 @@ class TestCtrlCalculadora {
         assertFalse(resultado.contains("4.0 + 2.0 = 6.0"));
     }
 
-    @Test
-    void testGetSubtracao() throws IOException, ServletException {
-
-        HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
-        HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
-        ServletContext mockedServletContext = mock(ServletContext.class);
-        HttpSession mockedSession = mock(HttpSession.class);
-        doReturn(mockedServletContext).when(mockedRequest).getServletContext();
-
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter writer = new PrintWriter(stringWriter);
-        when(mockedResponse.getWriter()).thenReturn(writer);
-
-        when(mockedRequest.getParameter("ValorA")).thenReturn("4");
-        when(mockedRequest.getParameter("ValorB")).thenReturn("2");
-        when(mockedRequest.getParameter("operacao")).thenReturn("subtracao");
-        when(mockedRequest.getSession()).thenReturn(mockedSession);
-
-        CtrCalculadora ctrlcalculadora = new CtrCalculadora();
-        ctrlcalculadora.doPost(mockedRequest, mockedResponse);
-
-        String resultado = stringWriter.toString();
-
-        assertTrue(resultado.contains("4.0 - 2.0 = 2.0"));
-    }
-
-    @Test
-    void testGetProduto() throws IOException, ServletException {
-
-        HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
-        HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
-        ServletContext mockedServletContext = mock(ServletContext.class);
-        HttpSession mockedSession = mock(HttpSession.class);
-        doReturn(mockedServletContext).when(mockedRequest).getServletContext();
-
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter writer = new PrintWriter(stringWriter);
-        when(mockedResponse.getWriter()).thenReturn(writer);
-
-        when(mockedRequest.getParameter("ValorA")).thenReturn("4");
-        when(mockedRequest.getParameter("ValorB")).thenReturn("2");
-        when(mockedRequest.getParameter("operacao")).thenReturn("produto");
-        when(mockedRequest.getSession()).thenReturn(mockedSession);
-
-        CtrCalculadora ctrlcalculadora = new CtrCalculadora();
-        ctrlcalculadora.doPost(mockedRequest, mockedResponse);
-
-        String resultado = stringWriter.toString();
-
-        assertTrue(resultado.contains("4.0 * 2.0 = 8.0"));
-    }
-
-    @Test
-    void testGetDivisao() throws IOException, ServletException {
-
-        HttpServletRequest mockedRequest = mock(HttpServletRequest.class);
-        HttpServletResponse mockedResponse = mock(HttpServletResponse.class);
-        ServletContext mockedServletContext = mock(ServletContext.class);
-        HttpSession mockedSession = mock(HttpSession.class);
-        doReturn(mockedServletContext).when(mockedRequest).getServletContext();
-
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter writer = new PrintWriter(stringWriter);
-        when(mockedResponse.getWriter()).thenReturn(writer);
-
-        when(mockedRequest.getParameter("ValorA")).thenReturn("4");
-        when(mockedRequest.getParameter("ValorB")).thenReturn("2");
-        when(mockedRequest.getParameter("operacao")).thenReturn("divisao");
-        when(mockedRequest.getSession()).thenReturn(mockedSession);
-
-        CtrCalculadora ctrlcalculadora = new CtrCalculadora();
-        ctrlcalculadora.doPost(mockedRequest, mockedResponse);
-
-        String resultado = stringWriter.toString();
-
-        assertTrue(resultado.contains("4.0 / 2.0 = 2.0"));
-    }
+  
     
     @Test
     void testDoPostIOException() throws ServletException, IOException {
