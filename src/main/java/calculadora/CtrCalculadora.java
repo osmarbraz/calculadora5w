@@ -30,34 +30,38 @@ public class CtrCalculadora extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        response.setContentType("text/html");
+        try {
+            response.setContentType("text/html");
 
-        try ( PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html><html lang=\"pt-br\" xml:lang=\"pt-br\">");
-            out.println("<html><head><title>Calculadora</title></head><body>");
-            out.println("<h1>Calculadora</h1>");
+            try ( PrintWriter out = response.getWriter()) {
+                out.println("<!DOCTYPE html><html lang=\"pt-br\" xml:lang=\"pt-br\">");
+                out.println("<html><head><title>Calculadora</title></head><body>");
+                out.println("<h1>Calculadora</h1>");
 
-            // Instancia o objeto Calculadora
-            Calculadora calculadora = new Calculadora();
-            calculadora.setValorA(getValorReal(request.getParameter("ValorA")));
-            calculadora.setValorB(getValorReal(request.getParameter("ValorB")));
+                // Instancia o objeto Calculadora
+                Calculadora calculadora = new Calculadora();
+                calculadora.setValorA(getValorReal(request.getParameter("ValorA")));
+                calculadora.setValorB(getValorReal(request.getParameter("ValorB")));
 
-            if (request.getParameter(OPERACAO).equals("adicao")) {
-                out.print("A adição de " + calculadora.getValorA() + " + " + calculadora.getValorB() + " = " + calculadora.getAdicao() + " <p>");
-            } else {
-                if (request.getParameter(OPERACAO).equals("subtracao")) {
-                    out.print("A subtração de " + calculadora.getValorA() + " - " + calculadora.getValorB() + " = " + calculadora.getSubtracao() + " <p>");
+                if (request.getParameter(OPERACAO).equals("adicao")) {
+                    out.print("A adição de " + calculadora.getValorA() + " + " + calculadora.getValorB() + " = " + calculadora.getAdicao() + " <p>");
                 } else {
-                    if (request.getParameter(OPERACAO).equals("produto")) {
-                        out.print("O produto " + calculadora.getValorA() + " * " + calculadora.getValorB() + " = " + calculadora.getProduto() + " <p>");
+                    if (request.getParameter(OPERACAO).equals("subtracao")) {
+                        out.print("A subtração de " + calculadora.getValorA() + " - " + calculadora.getValorB() + " = " + calculadora.getSubtracao() + " <p>");
                     } else {
-                        if (request.getParameter(OPERACAO).equals("divisao")) {
-                            out.print("A divisão " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getDivisao() + " <p>");
+                        if (request.getParameter(OPERACAO).equals("produto")) {
+                            out.print("O produto " + calculadora.getValorA() + " * " + calculadora.getValorB() + " = " + calculadora.getProduto() + " <p>");
+                        } else {
+                            if (request.getParameter(OPERACAO).equals("divisao")) {
+                                out.print("A divisão " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getDivisao() + " <p>");
+                            }
                         }
                     }
                 }
+                out.print("<a href=\"" + request.getContextPath() + "/FrmCalculadora.jsp\"> Novo cálculo </a><p></body></html>");
             }
-            out.print("<a href=\"" + request.getContextPath() + "/FrmCalculadora.jsp\"> Novo cálculo </a><p></body></html>");
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Problema E/S {0}", e.toString());
         }
     }
 }
