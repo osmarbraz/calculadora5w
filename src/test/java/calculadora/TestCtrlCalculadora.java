@@ -178,7 +178,7 @@ class TestCtrlCalculadora {
     }
     
     @Test
-    public void testDoPostIOException() throws ServletException, IOException {
+    void testDoPostIOException() throws ServletException, IOException {
         // Configuração do objeto mock do HttpServletRequest
         HttpServletRequest request = Mockito.mock(HttpServletRequest.class);
 
