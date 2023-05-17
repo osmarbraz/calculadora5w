@@ -37,7 +37,8 @@ class TestCtrlCalculadora {
         "4, 2, adicao,     4.0 + 2.0 = 6.0",
         "4, 2, subtracao,  4.0 - 2.0 = 2.0",
         "4, 2, produto,    4.0 * 2.0 = 8.0",
-        "4, 2, divisao,    4.0 / 2.0 = 2.0"        
+        "4, 2, divisao,    4.0 / 2.0 = 2.0",
+        "4, 2, xxxxx ,     Operação inválida!",
     })
     void testGetAdicao(String valorA, String valorB, String operacao, String resposta) throws IOException, ServletException {
 
@@ -64,6 +65,12 @@ class TestCtrlCalculadora {
         assertTrue(resultado.contains(resposta));
     }
         
+    /**
+     * Teste com valor A não númerico.
+     * 
+     * @throws IOException
+     * @throws ServletException 
+     */
     @Test
     void testGetAdicaoNaoNumeroValorA() throws IOException, ServletException {
 
@@ -86,10 +93,16 @@ class TestCtrlCalculadora {
         ctrlcalculadora.doPost(mockedRequest, mockedResponse);
 
         String resultado = stringWriter.toString();
-
+        
         assertFalse(resultado.contains("4.0 + 2.0 = 6.0"));
     }
     
+    /**
+     * Teste com valor B não númerico.
+     * 
+     * @throws IOException
+     * @throws ServletException 
+     */
     @Test
     void testGetAdicaoNaoNumeroValorB() throws IOException, ServletException {
 
@@ -116,8 +129,12 @@ class TestCtrlCalculadora {
         assertFalse(resultado.contains("4.0 + 2.0 = 6.0"));
     }
 
-  
-    
+    /**
+     * Teste exceção.
+     * 
+     * @throws IOException
+     * @throws ServletException 
+     */    
     @Test
     void testDoPostIOException() throws ServletException, IOException {
         // Configuração do objeto mock do HttpServletRequest

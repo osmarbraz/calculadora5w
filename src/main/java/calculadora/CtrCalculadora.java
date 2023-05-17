@@ -54,6 +54,8 @@ public class CtrCalculadora extends HttpServlet {
                         } else {
                             if (request.getParameter(OPERACAO).equals("divisao")) {
                                 out.print("A divisão " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getDivisao() + " <p>");
+                            } else {
+                                out.print("Operação inválida! <p>");
                             }
                         }
                     }
