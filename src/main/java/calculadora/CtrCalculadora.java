@@ -44,16 +44,16 @@ public class CtrCalculadora extends HttpServlet {
                 calculadora.setValorB(getValorReal(request.getParameter("ValorB")));
 
                 if (request.getParameter(OPERACAO).equals("adicao")) {
-                    out.print("A adição de " + calculadora.getValorA() + " + " + calculadora.getValorB() + " = " + calculadora.getAdicao() + " <p>");
+                    out.print("A soma de " + calculadora.getValorA() + " + " + calculadora.getValorB() + " = " + calculadora.getSoma() + " <p>");
                 } else {
                     if (request.getParameter(OPERACAO).equals("subtracao")) {
-                        out.print("A subtração de " + calculadora.getValorA() + " - " + calculadora.getValorB() + " = " + calculadora.getSubtracao() + " <p>");
+                        out.print("A diferenca de " + calculadora.getValorA() + " - " + calculadora.getValorB() + " = " + calculadora.getDiferenca() + " <p>");
                     } else {
-                        if (request.getParameter(OPERACAO).equals("produto")) {
-                            out.print("O produto " + calculadora.getValorA() + " * " + calculadora.getValorB() + " = " + calculadora.getProduto() + " <p>");
+                        if (request.getParameter(OPERACAO).equals("multiplicacao")) {
+                            out.print("O produto de " + calculadora.getValorA() + " * " + calculadora.getValorB() + " = " + calculadora.getProduto() + " <p>");
                         } else {
                             if (request.getParameter(OPERACAO).equals("divisao")) {
-                                out.print("A divisão " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getDivisao() + " <p>");
+                                out.print("O quociente de " + calculadora.getValorA() + " / " + calculadora.getValorB() + " = " + calculadora.getQuociente() + " <p>");
                             } else {
                                 out.print("Operação inválida! <p>");
                             }

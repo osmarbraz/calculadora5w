@@ -34,11 +34,11 @@ class TestCtrlCalculadora {
      */
     @ParameterizedTest
     @CsvSource({
-        "4, 2, adicao,     4.0 + 2.0 = 6.0",
-        "4, 2, subtracao,  4.0 - 2.0 = 2.0",
-        "4, 2, produto,    4.0 * 2.0 = 8.0",
-        "4, 2, divisao,    4.0 / 2.0 = 2.0",
-        "4, 2, xxxxx ,     Operação inválida!",
+        "4, 2, adicao,        4.0 + 2.0 = 6.0",
+        "4, 2, subtracao,     4.0 - 2.0 = 2.0",
+        "4, 2, multiplicacao, 4.0 * 2.0 = 8.0",
+        "4, 2, divisao,       4.0 / 2.0 = 2.0",
+        "4, 2, xxxxx ,        Operação inválida!",
     })
     void testGetAdicao(String valorA, String valorB, String operacao, String resposta) throws IOException, ServletException {
 

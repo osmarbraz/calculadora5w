@@ -6,18 +6,18 @@ import org.junit.jupiter.api.Test;
 class TestCalculadora {
 
     @Test
-    void testGetAdicao() {
+    void testGetSoma() {
         Calculadora calculadora = new Calculadora(4.0, 2.0);
         double retornoEsperado = 6.0;
-        double retornoFeito = calculadora.getAdicao();
+        double retornoFeito = calculadora.getSoma();
         assertEquals(retornoEsperado, retornoFeito, 0);
     }
 
     @Test
-    void testGetSubtracao() {
+    void testGetDiferenca() {
         Calculadora calculadora = new Calculadora(4.0, 2.0);
         double retornoEsperado = 2.0;
-        double retornoFeito = calculadora.getSubtracao();
+        double retornoFeito = calculadora.getDiferenca();
         assertEquals(retornoEsperado, retornoFeito, 0);
     }
 
@@ -30,10 +30,10 @@ class TestCalculadora {
     }
 
     @Test
-    void testGetDivisao() {
+    void testGetQuociente() {
         Calculadora calculadora = new Calculadora(4.0, 2.0);
         double retornoEsperado = 2.0;
-        double retornoFeito = calculadora.getDivisao();
+        double retornoFeito = calculadora.getQuociente();
         assertEquals(retornoEsperado, retornoFeito, 0);
     }
 }
