@@ -10,7 +10,7 @@
     <packaging>war</packaging>
 
     <name>calculadora5w</name>
-    <description>Exemplo Calculadora com Spring Boot</description>
+    <description>Exemplo Calculadora WEB</description>
 
     <properties>
         <sonar.organization>osmarbraz</sonar.organization>
