@@ -5,18 +5,38 @@
 
 # Calculadora WEB com CI.
 
-Utiliza 3 ambientes:
-- dev - Desenvolvimento
-- hmg - Homologação
-- prd - Produção
+Aplicação **Calculadora WEB** desenvolvida em **Java**, empacotada como uma aplicação **WAR** e executada em um container Docker utilizando o **Apache Tomcat**.
 
-Pipeline 
-- dev - Compilação e testes.
-- hmg - Análise e cobertura de código.
-- prd - Empacotamento.
+## Ambientes
 
-<br>
-- O projeto foi desenvolvido no NetBeans deve ser chamado calculadora5w.<br>
-- Utiliza o Apache Maven para a automatização da construção.<br>
-- A pasta test contêm os testes unitários do projeto utilizando JUnit 5.<br>
-- A cobertura do código é realizada através do JaCoCo.<br>
+### Utiliza 3 ambientes:
+
+ - dev - Desenvolvimento
+ - hmg - Homologação
+ - prd - Produção
+
+### Pipeline 
+
+ - dev - Compilação e testes.
+ - hmg - Análise e cobertura de código.
+ - prd - Empacotamento.
+
+## Sobre o projeto
+
+ - O projeto foi desenvolvido no NetBeans deve ser chamado **calculadora5w**.
+ - Utiliza o **Java 8**.
+ - Utiliza o **Apache Tomcat 9** como servidor de aplicações Web.
+ - Utiliza o **Apache Maven** para automatizar o processo de construção da aplicação.
+ - A aplicação é empacotada no formato **WAR (Web Application Archive)**.
+ - Utiliza o **Docker** para criar uma imagem e executar a aplicação em um container.
+ - A pasta test contêm os testes unitários do projeto utilizando JUnit 5.<br>
+ - A cobertura do código é realizada através do JaCoCo.<br>
+
+# Comandos Docker
+ - Utilizar o terminal do Windows Powershel em modo administrador.
+
+### Construir a aplicação
+ - ```mvn compile jib:dockerBuild```
+
+### Executar a aplicação
+ - ```docker run -d -p 8080:8080 osmarbraz/calculadora5w```

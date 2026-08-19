@@ -127,10 +127,11 @@
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
-                <version>3.2.1</version>
+                <version>3.5.2</version>
                 <configuration>
+                    <!-- imagem base -->
                     <from>                        
-                        <image>tomcat:8.5-jre8-alpine</image>
+                        <image>tomcat:9.0-jdk8</image>
                     </from>
                     <to>                        
                         <image>osmarbraz/${project.artifactId}:${project.version}</image>
