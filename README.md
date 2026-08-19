@@ -27,10 +27,11 @@ Aplicação **Calculadora WEB** desenvolvida em **Java**, empacotada como uma ap
  - Utiliza o **Java 8**.
  - Utiliza o **Apache Tomcat 9** como servidor de aplicações Web.
  - Utiliza o **Apache Maven** para automatizar o processo de construção da aplicação.
+ - Utiliza o **Jib-Maven-Plugin** para criação das imagens Docker.
  - A aplicação é empacotada no formato **WAR (Web Application Archive)**.
  - Utiliza o **Docker** para criar uma imagem e executar a aplicação em um container.
- - A pasta test contêm os testes unitários do projeto utilizando JUnit 5.<br>
- - A cobertura do código é realizada através do JaCoCo.<br>
+ - A pasta test contêm os testes unitários do projeto utilizando **JUnit 5**.
+ - A cobertura do código é realizada através do **JaCoCo**.<br>
 
 # Comandos Docker
  - Utilizar o terminal do Windows Powershel em modo administrador.
