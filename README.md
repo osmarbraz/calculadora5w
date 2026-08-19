@@ -40,4 +40,4 @@ Aplicação **Calculadora WEB** desenvolvida em **Java**, empacotada como uma ap
  - ```mvn compile jib:dockerBuild```
 
 ### Executar a aplicação
- - ```docker run -d -p 8080:8080 osmarbraz/calculadora5w```
+ - ```docker run -d -p 8080:8080 osmarbraz/calculadora5w:0.0.1```
