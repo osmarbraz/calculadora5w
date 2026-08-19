@@ -129,10 +129,11 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.5.2</version>
                 <configuration>
-                    <!-- imagem base -->
+                    <!-- Imagem base -->
                     <from>                        
                         <image>tomcat:9.0-jdk8</image>
                     </from>
+                    <!-- Configuração da imagem -->
                     <to>                        
                         <image>osmarbraz/${project.artifactId}:${project.version}</image>
                         <auth>
