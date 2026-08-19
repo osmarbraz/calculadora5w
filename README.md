@@ -31,7 +31,7 @@ Aplicação **Calculadora WEB** desenvolvida em **Java**, empacotada como uma ap
  - A aplicação é empacotada no formato **WAR (Web Application Archive)**.
  - Utiliza o **Docker** para criar uma imagem e executar a aplicação em um container.
  - A pasta test contêm os testes unitários do projeto utilizando **JUnit 5**.
- - A cobertura do código é realizada através do **JaCoCo**.<br>
+ - A cobertura do código é realizada através do **JaCoCo**.
 
 # Comandos Docker
  - Utilizar o terminal do Windows Powershel em modo administrador.

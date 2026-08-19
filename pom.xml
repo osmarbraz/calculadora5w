@@ -154,7 +154,6 @@
                     </container>
                 </configuration>
             </plugin>
-
             
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
